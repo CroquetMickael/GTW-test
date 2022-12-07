@@ -11,7 +11,7 @@ class TodoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class TodoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -44,7 +44,7 @@ class TodoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Todo $todo)
     {
@@ -60,7 +60,7 @@ class TodoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Todo $todo)
     {
