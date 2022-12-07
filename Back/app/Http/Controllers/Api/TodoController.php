@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TodoController extends Controller
 {
@@ -31,6 +32,7 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $todo = Todo::create($request->all());
+        Log::info("A user have create a todo item titled: {$todo->title}");
 
         return response()->json([
             "message" => "Todo created successfully!",
@@ -50,6 +52,8 @@ class TodoController extends Controller
     {
         $todo = Todo::update($request->all());
 
+        Log::log("INFO", "A user have updated a todo item titled: {$todo->title}");
+
         return response()->json([
             "message"=> "Todo updated successfully",
             'todo'=>$todo
@@ -65,6 +69,8 @@ class TodoController extends Controller
     public function destroy(Todo $todo)
     {
         $todo->delete();
+
+        Log::log("INFO", "A user have deleted a todo item titled: {$todo->title}");
 
         return response()->json([
             'message'=> 'Todo deleted sucessfully!'
